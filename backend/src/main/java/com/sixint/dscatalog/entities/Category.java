@@ -3,12 +3,21 @@ package com.sixint.dscatalog.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Category implements Serializable{
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	/**
-	 * serialVersionUID applied to Category, allow java objects to converted in bytes. Automatic implementation.
-	 */
+@Entity
+@Table(name = "Table_category")
+public class Category implements Serializable{
+/**
+* serialVersionUID applied to Category, allow java objects to converted in bytes. Automatic implementation.
+*/
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
 	private Long id;
 	private String name;
 

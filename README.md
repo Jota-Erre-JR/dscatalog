@@ -1,6 +1,6 @@
 # Spring React Bootcamp project
 
-##Skills
+## Skills
 
 - Create Spring Boot project
 - Create Git monorepo

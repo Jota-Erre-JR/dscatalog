@@ -26,7 +26,7 @@ public class ProductService {
 
 	@Autowired
 	private ProductRepository repository;
-	
+
 	@Autowired
 	private CategoryRepository categoryRepository;
 
@@ -85,7 +85,7 @@ public class ProductService {
 		entity.setDate(dto.getDate());
 		entity.setImgUrl(dto.getImgUrl());
 		entity.setPrice(dto.getPrice());
-		
+
 		entity.getCategories().clear();
 		for (CategoryDTO catDTO : dto.getCategories()) {
 			Category category = categoryRepository.getOne(catDTO.getId());

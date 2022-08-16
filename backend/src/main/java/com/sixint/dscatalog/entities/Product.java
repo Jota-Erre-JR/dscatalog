@@ -40,7 +40,7 @@ public class Product implements Serializable {
 	Set<Category> categories = new HashSet<>();
 
 	public Product() {
-
+		
 	}
 
 	public Product(Long id, String name, String description, Double price, String imgUrl, Instant date) {
@@ -50,6 +50,7 @@ public class Product implements Serializable {
 		this.price = price;
 		this.imgUrl = imgUrl;
 		this.date = date;
+		
 	}
 
 	public Long getId() {
@@ -99,7 +100,7 @@ public class Product implements Serializable {
 	public void setDate(Instant date) {
 		this.date = date;
 	}
-
+	
 	public Set<Category> getCategories() {
 		return categories;
 	}

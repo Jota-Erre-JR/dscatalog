@@ -37,7 +37,7 @@ public class ProductService {
 	@Transactional(readOnly = true)
 	public Page<ProductDTO> findAllPaged(Pageable pageable) {
 		Page<Product> list = repository.findAll(pageable);
-		return list.map(x -> new ProductDTO(x));
+		return list.map(x -> new ProductDTO(x, x.getCategories()));
 
 	}
 
@@ -54,7 +54,7 @@ public class ProductService {
 		Product entity = new Product();
 		CopyDTOToEntity(dto, entity);
 		entity = repository.save(entity);
-		return new ProductDTO(entity);
+		return new ProductDTO(entity, entity.getCategories());
 	}
 
 	@Transactional
@@ -63,7 +63,7 @@ public class ProductService {
 			Product entity = repository.getOne(id);// At new Spring Boot versions getOne changed to getReferenceById().
 			CopyDTOToEntity(dto, entity);
 			entity = repository.save(entity);
-			return new ProductDTO(entity);
+			return new ProductDTO(entity, entity.getCategories());
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException("Id " + id + " not found!");
 		}

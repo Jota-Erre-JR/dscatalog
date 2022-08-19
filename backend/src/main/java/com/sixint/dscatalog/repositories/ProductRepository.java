@@ -7,5 +7,4 @@ import com.sixint.dscatalog.entities.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long>{
-
 }

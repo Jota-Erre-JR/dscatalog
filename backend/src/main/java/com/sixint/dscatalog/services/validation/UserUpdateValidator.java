@@ -32,7 +32,7 @@ public class UserUpdateValidator implements ConstraintValidator<UserUpdateValid,
 	public boolean isValid(UserUpdateDTO dto, ConstraintValidatorContext context) {
 		
 		@SuppressWarnings("unchecked")
-		var uriVars = (Map<String,String>) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
+		var uriVars = (Map<String, String>) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
 		long userId = Long.parseLong(uriVars.get("id"));
 		
 		List<FieldMessage> list = new ArrayList<>();

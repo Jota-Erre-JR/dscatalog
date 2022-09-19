@@ -1,6 +1,13 @@
-# Spring React Bootcamp project
+# DSCATALOG
 
-## Skills
+## Spring React Bootcamp project
+
+![image](https://user-images.githubusercontent.com/95655712/190936412-8b3a3bf9-cfe7-4f4f-92c8-030f49f74737.png)
+
+![image](https://user-images.githubusercontent.com/95655712/190936569-5a8e25c0-d9cb-43ad-81a5-f859225e3162.png)
+
+
+### Back-end Skills
 
 - Create Spring Boot project
 - Create Git monorepo

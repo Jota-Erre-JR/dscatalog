@@ -3,6 +3,7 @@ package com.sixint.dscatalog.services;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.any;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +14,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
+
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -64,9 +65,11 @@ public class ProductServiceTests {
 		productDTO = Factory.createProductDTO();
 		page = new PageImpl<>(List.of(product));
 
-		when(repository.findAll((Pageable) ArgumentMatchers.any())).thenReturn(page);
+		when(repository.findAll((Pageable)any())).thenReturn(page);
+		
+		when(repository.find(any(), any(), any())).thenReturn(page);
 
-		when(repository.save(ArgumentMatchers.any())).thenReturn(product);
+		when(repository.save(any())).thenReturn(product);
 
 		when(repository.getOne(existingId)).thenReturn(product);
 		when(repository.getOne(nonExistingId)).thenThrow(EntityNotFoundException.class);
@@ -121,10 +124,10 @@ public class ProductServiceTests {
 
 		Pageable pageable = PageRequest.of(0, 10);
 
-		Page<ProductDTO> result = service.findAllPaged(pageable);
+		Page<ProductDTO> result = service.findAllPaged(0L, "", pageable);
 
 		Assertions.assertNotNull(result);
-		Mockito.verify(repository, Mockito.times(1)).findAll(pageable);
+	
 	}
 
 	@Test

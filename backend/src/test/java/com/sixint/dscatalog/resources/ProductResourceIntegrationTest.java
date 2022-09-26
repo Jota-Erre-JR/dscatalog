@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sixint.dscatalog.dto.ProductDTO;
 import com.sixint.dscatalog.tests.Factory;
+import com.sixint.dscatalog.tests.TokenUtil;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -31,10 +32,16 @@ public class ProductResourceIntegrationTest {
 	@Autowired
 	private ObjectMapper objectMapper;
 	
+	@Autowired
+	private TokenUtil tokenUtil;
+	
 	private Long existingId;
 	private Long nonExistingId;
 	private Long countTotalProducts;
 	private ProductDTO productDTO;
+	
+	private String username;
+	private String password;
 
 	@BeforeEach
 	void setup() throws Exception {
@@ -43,6 +50,9 @@ public class ProductResourceIntegrationTest {
 		nonExistingId = 1000L;
 		countTotalProducts = 25L;
 		productDTO = Factory.createProductDTO();
+		
+		username = "maria@gmail.com";
+		password = "123456";
 		
 	}
 
@@ -83,12 +93,15 @@ public class ProductResourceIntegrationTest {
 	@Test
 	public void updateShouldReturnProductDTOWhenIdExists() throws Exception {
 		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
+		
 		String jsonBody = objectMapper.writeValueAsString(productDTO);
 		
 		String expectedName = productDTO.getName();
 		String expectedDescription = productDTO.getDescription();
 		
 		ResultActions result = mockMvc.perform(put("/products/{id}", existingId)
+				.header("Authorization", "Bearer " + accessToken)
 				.content(jsonBody)
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON));
@@ -103,9 +116,12 @@ public class ProductResourceIntegrationTest {
 	@Test
 	public void updateShouldReturnNotFoundWhenIdNotExist() throws Exception {
 		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
+		
 		String jsonBody = objectMapper.writeValueAsString(productDTO);
 				
 		ResultActions result = mockMvc.perform(put("/products/{id}", nonExistingId)
+				.header("Authorization", "Bearer " + accessToken)
 				.content(jsonBody)
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON));
@@ -115,15 +131,23 @@ public class ProductResourceIntegrationTest {
 	
 	@Test
 	public void deleteShouldDeleteResourceWhenIdExist() throws Exception {
-		ResultActions result = mockMvc
-				.perform(delete("/products/{id}", existingId).accept(MediaType.APPLICATION_JSON));
+		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
+		
+		ResultActions result = mockMvc.perform(delete("/products/{id}", existingId)
+				.header("Authorization", "Bearer " + accessToken)
+				.accept(MediaType.APPLICATION_JSON));
 
 		result.andExpect(status().isNoContent());
 	}
 		
 	@Test
 	public void deleteShouldReturnNotFoundWhenIdExists() throws Exception {
+		
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, username, password);
+						
 		ResultActions result = mockMvc.perform(delete("/products/{id}", nonExistingId)
+				.header("Authorization", "Bearer " + accessToken)
 				.accept(MediaType.APPLICATION_JSON));
 			
 		result.andExpect(status().isNotFound());

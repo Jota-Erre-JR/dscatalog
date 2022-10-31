@@ -1,9 +1,6 @@
 import './styles.css';
 import 'bootstrap/js/src/collapse.js';
 import { Link, NavLink } from 'react-router-dom';
-import Home from 'pages/Home';
-import Catalog from 'pages/Catalog';
-import Admin from 'pages/Admin';
 
 const Navbar = () => {
   return (

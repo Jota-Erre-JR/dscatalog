@@ -4,9 +4,9 @@ import ProductPrice from 'components/ProductPrice';
 import { Product } from 'types/product';
 
 type Props = {
-  product: Product
-}
-const ProductCard = ({product} : Props) => {
+  product: Product;
+};
+const ProductCard = ({ product }: Props) => {
   return (
     <div className="base-card product-card">
       <div className="card-top-container">

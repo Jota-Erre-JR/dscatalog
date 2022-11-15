@@ -5,6 +5,7 @@ import './styles.css';
 
 const ProductDetails = () => {
   return (
+    <>
     <div className="product-details-container">
       <div className="base-card product-details-card">
         <Link to="/products/">
@@ -22,7 +23,7 @@ const ProductDetails = () => {
               />
             </div>
             <div className="name-price-container">
-              <h1>Computador Desktop - Intel Core i7</h1>
+              <h1>Smart Tv</h1>
               <ProductPrice price={1234.56} />
             </div>
           </div>
@@ -30,27 +31,20 @@ const ProductDetails = () => {
             <div className="description-container">
               <h2>Descrição do produto</h2>
               <p>
-                Decrição do Produto Projetado para garantir a produtividade no
-                seu dia a dia O desempenho que você precisa para uma jornada
-                eficiente é garantido pelos processadores Intel da família Core
-                - Conectividade ao seu alcance Saídas de áudio com qualidade HD
-                e conexões USB estão dipooníveis na frontal do seu CorPc - Baixo
-                consumo Mesmo trabalhando todos os dias, você não tera sustos na
-                conta de energia. Fizemos tudo bem feito, para o seu CorPC seja
-                eficiente, silencioso e econômico no consumo de energia elétrica
-                - Multitarefas Seja um mestre em multitarefas com a capacidade
-                para exibir quatro aplicativos simultâneos na tela. A tela está
-                ficando abarrotada? Crie áreas de trabalho virtuais para obter
-                mais espaço e trabalhar com os itens que você deseja. Além
-                disso, todas as notificações e principais configurações são
-                reunidas em uma única tela de fácil acesso. Sistema operacional
-                completo com super pacote de programas.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+       </div>
+     </div>
+    </>
   );
 };
 

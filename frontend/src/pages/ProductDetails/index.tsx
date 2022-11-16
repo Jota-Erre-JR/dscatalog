@@ -1,9 +1,29 @@
 import { ReactComponent as ArrowImage } from 'assets/images/arrow.svg';
+import axios from 'axios';
 import ProductPrice from 'components/ProductPrice';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { Product } from 'types/product';
+import { BASE_URL } from 'util/requests';
 import './styles.css';
 
+type UrlParams = {
+  productId:string;
+}
 const ProductDetails = () => {
+
+  const { productId } = useParams<UrlParams>();
+  
+  const [product, setProduct] = useState<Product>();
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/products/${productId}`)
+    .then(response => {
+      setProduct(response.data);
+    });
+  }, [productId])
+  
+
   return (
     <>
     <div className="product-details-container">
@@ -18,26 +38,20 @@ const ProductDetails = () => {
           <div className="col-xl-6">
             <div className="img-container">
               <img
-                src="https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/2-big.jpg"
-                alt="Nome do produto"
+                src={product?.imgUrl}
+                alt={product?.name}
               />
             </div>
             <div className="name-price-container">
-              <h1>Smart Tv</h1>
-              <ProductPrice price={1234.56} />
+              <h1>{product?.name}</h1>
+              {product && <ProductPrice price={product?.price} />}
             </div>
           </div>
           <div className="col-xl-6">
             <div className="description-container">
               <h2>Descrição do produto</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                {product?.description}
               </p>
             </div>
           </div>

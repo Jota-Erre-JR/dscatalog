@@ -1,12 +1,11 @@
-.user-list p{
-    display:flex;
-    flex-direction: column;
-    background-color: rgba(226, 224, 224, 0.966);
-    font-size: 16px;
-    border-radius: 10px;
-    padding-left: 5px;
-    line-height: 40px;
-    color: dimgray;
-    box-shadow:  rgba(226, 224, 224, 0.5);
+.user-list p {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(226, 224, 224, 0.966);
+  font-size: 16px;
+  border-radius: 10px;
+  padding-left: 5px;
+  line-height: 40px;
+  color: dimgray;
+  box-shadow: rgba(226, 224, 224, 1);
 }
-

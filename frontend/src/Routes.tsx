@@ -4,11 +4,12 @@ import Auth from 'pages/Admin/Auth';
 import Catalog from 'pages/Catalog';
 import Home from 'pages/Home';
 import ProductDetails from 'pages/ProductDetails';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import {  Redirect, Route, Router, Switch } from 'react-router-dom';
+import history from 'util/history';
 
 const Routes = () => {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <Navbar />
       <Switch>
         <Route path="/" exact>
@@ -30,7 +31,7 @@ const Routes = () => {
         </Route>
        
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 };
 

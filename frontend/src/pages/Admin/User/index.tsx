@@ -25,8 +25,8 @@ const Users = () => {
   return (
     <div className='user-list'>
       {page?.content.map((item) => (
-        <p key={item.id}>{"First Name: " + item.firstName}<br/> {"email: " + item.email} <br/> <pre>{ 
-            JSON.stringify(item.roles, ['authority'], 0)}</pre></p>
+        <p key={item.id}>{"First Name: " + item.firstName}<br/> {"email: " + item.email} <br/> { 
+            JSON.stringify(item.roles, ['authority'], 0)}</p>
             ))}
     </div>
   );

@@ -70,10 +70,10 @@ const Navbar = () => {
               </NavLink>
             </ul>
           </div>
-          <div>
+          <div className="nav-login-logout">
             {authData.authenticated ? (
               <>
-              <span>{"Seja bem vindo, " + authData.tokenData?.user_name + " "}</span>
+              <span className="nav-username">{"Olá, " + authData.tokenData?.user_name + "!"}</span>
               <a href="#logout" onClick={handleLogoutClick}>LOGOUT</a>
               </>
             ) : (

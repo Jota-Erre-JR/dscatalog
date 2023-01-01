@@ -14,16 +14,15 @@ type FormData = {
 
 type LocationState = {
   from: string;
-}
+};
 
 const Login = () => {
-
   const location = useLocation<LocationState>();
 
-  const {from} = location.state || { from: {pathname: '/admin'} };
-  
+  const { from } = location.state || { from: { pathname: '/admin' } };
+
   const { setAuthContextData } = useContext(AuthContext);
-  
+
   const [hasError, setHasError] = useState(false);
 
   const {
@@ -42,7 +41,7 @@ const Login = () => {
         setAuthContextData({
           authenticated: true,
           tokenData: getTokenData(),
-        })
+        });
         history.replace(from);
       })
       .catch((error) => {

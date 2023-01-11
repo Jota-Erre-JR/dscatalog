@@ -1,9 +1,12 @@
-import './styles.css'
+
+import './styles.css';
 
 const Form = () => {
-    return(
-        <h1>Form</h1>
-    )
-}
+  return (
+    <>
+      <div>Form</div>
+    </>
+  );
+};
 
 export default Form;

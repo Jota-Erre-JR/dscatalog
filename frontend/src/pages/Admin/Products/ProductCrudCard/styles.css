@@ -1,29 +1,133 @@
-.product-crud-card{
-    margin-bottom: 30px;
+.product-crud-card {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
 }
 
-.card-crud-top-container{
-    text-align: center;
-    padding: 16px 0;
-    border-bottom: 1px solid #E1E1E1;
+.card-crud-top-container {
+  text-align: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #e1e1e1;
 }
 
-.card-crud-top-container img{
-    width: 158px;
-    height: 158px;
+.card-crud-top-container img {
+  width: 158px;
+  height: 158px;
 }
 
-.card-crud-bottom-container{
-    padding: 15px 20px 15px 20px;
+.card-crud-bottom-container {
+  padding: 15px;
 }
 
-.card-crud-bottom-container h6{
-    font-size: 18px;
-    color: #263238;
+.card-crud-bottom-container h6 {
+  font-size: 18px;
+  color: #263238;
 }
 
-.product-crud-categories-badges{
+.product-crud-categories-badges {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 15px;
+}
+
+.product-crud-buttons-badges {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn-outline-delete,
+.btn-outline-delete:hover,
+.btn-outline-delete::after,
+.btn-outline-delete:enabled,
+.btn-outline-delete:disabled {
+  width: 110px;
+  height: 40px;
+  border: 1px solid #df5753;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: #df5753;
+}
+
+.btn-outline-edit,
+.btn-outline-edit:hover,
+.btn-outline-edit::after,
+.btn-outline-edit:enabled,
+.btn-outline-edit:disabled {
+  width: 110px;
+  height: 40px;
+  border: 1px solid #9e9e9e;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: #9e9e9e;
+  background-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .product-crud-card {
     display: flex;
-    flex-direction: row;
-    padding: 0 20px;
+    justify-content: space-between;
+    padding-bottom: 0;
+  }
+  .card-crud-top-container {
+    border-right: 1px solid #e1e1e1;
+    border-bottom: 0;
+  }
+
+  .product-crud-buttons-badges {
+    flex-direction: column-reverse;
+    align-content: space-between;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .btn-outline-delete,
+  .btn-outline-delete:hover,
+  .btn-outline-delete::after,
+  .btn-outline-delete:enabled,
+  .btn-outline-delete:disabled {
+    margin-top: 22px;
+    width: 140px;
+    height: 40px;
+  }
+
+  .btn-outline-edit,
+  .btn-outline-edit:hover,
+  .btn-outline-edit::after,
+  .btn-outline-edit:enabled,
+  .btn-outline-edit:disabled {
+    width: 140px;
+    height: 40px;
+  }
+
+  .product-crud-card-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+}
+
+@media (min-width: 992px) {
+  .btn-outline-delete,
+  .btn-outline-delete:hover,
+  .btn-outline-delete::after,
+  .btn-outline-delete:enabled,
+  .btn-outline-delete:disabled {
+    width: 220px;
+  }
+
+  .btn-outline-edit,
+  .btn-outline-edit:hover,
+  .btn-outline-edit::after,
+  .btn-outline-edit:enabled,
+  .btn-outline-edit:disabled {
+    width: 220px;
+  }
 }

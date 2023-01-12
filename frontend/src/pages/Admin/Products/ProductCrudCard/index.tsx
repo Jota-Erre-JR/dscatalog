@@ -13,7 +13,7 @@ const ProductCrudCard = ({ product }: Props) => {
       <div className="card-crud-top-container">
         <img src={product.imgUrl} alt={product.name} />
       </div>
-      <div>
+      <div className="product-crud-card-description">
         <div className="card-crud-bottom-container">
           <h6>{product.name}</h6>
           <ProductPrice price={product.price} />
@@ -23,6 +23,10 @@ const ProductCrudCard = ({ product }: Props) => {
             <CategoryBadge name={category.name} key={category.id} />
           ))}
         </div>
+      </div>
+      <div className="product-crud-buttons-badges">
+        <button className="btn btn-outline-delete">EXCLUIR</button>
+        <button type="submit" className="btn btn-outline-edit">EDITAR</button>
       </div>
     </div>
   );

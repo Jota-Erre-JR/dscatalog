@@ -19,6 +19,7 @@
   .product-crud-container {
     display: flex;
     margin-bottom: 40px;
+    max-width: 1200px;
   }
 
   .btn-crud-add {

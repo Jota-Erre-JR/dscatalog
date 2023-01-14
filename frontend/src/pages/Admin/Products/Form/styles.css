@@ -1,0 +1,43 @@
+.product-crud-container {
+  max-width: 1200px;
+}
+
+.product-crud-form-card {
+  padding: 20px;
+}
+
+.product-crud-form-title {
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  color: #263238;
+}
+
+.btn-cancel {
+  width: 110px;
+  height: 40px;
+  border: 1px solid #df5753;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: #df5753;
+}
+
+.btn-save,
+.btn-save:hover,
+.btn-save::after,
+.btn-save:enabled,
+.btn-save:disabled {
+  width: 110px;
+  height: 40px;
+  border: 1px solid #407bff;
+  background-color: #407bff;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: #fff;
+}

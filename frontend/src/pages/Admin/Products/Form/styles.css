@@ -11,6 +11,24 @@
   font-size: 22px;
   letter-spacing: -0.015em;
   color: #263238;
+  margin-bottom: 30px;
+}
+
+.product-crud-input-container {
+  margin-bottom: 30px;
+}
+
+.margin-bottom-30 {
+  margin-bottom: 30px;
+}
+
+.product-crud-input-left-container {
+  margin-bottom: 30px;
+}
+
+.product-crud-buttons-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .btn-cancel {
@@ -40,4 +58,29 @@
   text-align: center;
   letter-spacing: -0.015em;
   color: #fff;
+}
+
+@media (min-width: 576px) {
+  .product-crud-buttons-container {
+    justify-content: flex-end;
+  }
+
+  .btn-cancel {
+    margin-right: 30px;
+    width: 270px;
+  }
+
+  .btn-save,
+  .btn-save:hover,
+  .btn-save::after,
+  .btn-save:enabled,
+  .btn-save:disabled {
+    width: 270px;
+  }
+}
+
+@media (min-width: 992px) {
+  .product-crud-input-left-container {
+    margin-bottom: 0px;
+  }
 }

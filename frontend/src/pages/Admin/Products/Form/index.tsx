@@ -23,17 +23,17 @@ const Form = () => {
     const config: AxiosRequestConfig = {
       method: 'POST',
       url: '/products',
-      data: data,
+      data,
       withCredentials: true,
     };
     requestBackend(config).then((response) => {
-      console.log(response.data);
+      history.push("/admin/products");
     });
   };
 
   const handleCancel = () =>{
-    history.push("/admin/products")
-  }
+    history.push("/admin/products");
+  };
 
   return (
     <>

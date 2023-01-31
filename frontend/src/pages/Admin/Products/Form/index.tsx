@@ -3,36 +3,58 @@ import './styles.css';
 import { Product } from 'types/product';
 import { requestBackend } from 'util/requests';
 import { AxiosRequestConfig } from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+
+type UrlParams = {
+  productId: string;
+};
 
 const Form = () => {
-  const history = useHistory();
+  const { productId } = useParams<UrlParams>();
 
-  
+  const isEditing = productId !== 'create';
+
+  const history = useHistory();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<Product>();
 
-  const onSubmit = (formData: Product) => {
+  useEffect(() => {
+    if (isEditing) {
+      requestBackend({ url: `/products/${productId}` }).then((response) => {
+        const product = response.data as Product;
 
-    const data = { ...formData, categories: [ { id: 1, name: "" } ]};
+        setValue('name', product.name);
+        setValue('price', product.price);
+        setValue('description', product.description);
+        setValue('imgUrl', product.imgUrl);
+        setValue('categories', product.categories);
+      });
+    }
+  }, [isEditing, productId, setValue]);
+
+  const onSubmit = (formData: Product) => {
+    const data = { ...formData, imgUrl: isEditing ? formData.imgUrl : '',
+      categories: isEditing ? formData.categories : [{ id: 1, name: '' }] };
 
     const config: AxiosRequestConfig = {
-      method: 'POST',
-      url: '/products',
+      method: isEditing ? 'PUT' : 'POST',
+      url: isEditing ? `/products/${productId}` : '/products',
       data,
       withCredentials: true,
     };
     requestBackend(config).then((response) => {
-      history.push("/admin/products");
+      history.push('/admin/products');
     });
   };
 
-  const handleCancel = () =>{
-    history.push("/admin/products");
+  const handleCancel = () => {
+    history.push('/admin/products');
   };
 
   return (
@@ -89,15 +111,16 @@ const Form = () => {
                     placeholder="Descrição"
                     name="description"
                   />
-                   <div className="invalid-feedback d-block">
+                  <div className="invalid-feedback d-block">
                     {errors.description?.message}
                   </div>
                 </div>
               </div>
             </div>
             <div className="product-crud-buttons-container">
-              <button className="btn btn-cancel"
-              onClick={handleCancel}>CANCELAR</button>
+              <button className="btn btn-cancel" onClick={handleCancel}>
+                CANCELAR
+              </button>
               <button className="btn btn-save">SALVAR</button>
             </div>
           </form>

@@ -12,10 +12,12 @@ import './styles.css';
 type UrlParams = {
   productId: string;
 };
+
 const ProductDetails = () => {
   const { productId } = useParams<UrlParams>();
 
   const [product, setProduct] = useState<Product>();
+
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {

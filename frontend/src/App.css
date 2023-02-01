@@ -26,6 +26,7 @@ a, a:hover{
   font-size: 1em;
   letter-spacing: -0.015em;
   color: #263238;
+  background-color: #ffffff !important;
   }
   
   .base-input::placeholder {

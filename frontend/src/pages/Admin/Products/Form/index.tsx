@@ -39,8 +39,11 @@ const Form = () => {
   }, [isEditing, productId, setValue]);
 
   const onSubmit = (formData: Product) => {
-    const data = { ...formData, imgUrl: isEditing ? formData.imgUrl : '',
-      categories: isEditing ? formData.categories : [{ id: 1, name: '' }] };
+    const data = {
+      ...formData,
+      imgUrl: isEditing ? formData.imgUrl : '',
+      categories: isEditing ? formData.categories : [{ id: 1, name: '' }],
+    };
 
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',

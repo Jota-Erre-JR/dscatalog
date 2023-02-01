@@ -4,11 +4,31 @@ import ProductPrice from 'components/ProductPrice';
 import { Product } from 'types/product';
 import CategoryBadge from '../CategoryBadge';
 import { Link } from 'react-router-dom';
+import { AxiosRequestConfig } from 'axios';
+import { requestBackend } from 'util/requests';
 
 type Props = {
   product: Product;
+  onDelete: Function;
 };
-const ProductCrudCard = ({ product }: Props) => {
+
+const ProductCrudCard = ({ product, onDelete }: Props) => {
+  const handleDelete = (productId: number) => {
+    if (!window.confirm('Deseja realmente excluir o produto?')) {
+      return;
+    }
+
+    const config: AxiosRequestConfig = {
+      method: 'DELETE',
+      url: `/products/${productId}`,
+      withCredentials: true,
+    };
+
+    requestBackend(config).then(() => {
+      onDelete();
+    });
+  };
+
   return (
     <div className="base-card product-crud-card">
       <div className="card-crud-top-container">
@@ -26,9 +46,18 @@ const ProductCrudCard = ({ product }: Props) => {
         </div>
       </div>
       <div className="product-crud-buttons-badges">
-        <button className="btn btn-outline-delete">EXCLUIR</button>
+        <button
+          onClick={() => {
+            handleDelete(product.id);
+          }}
+          className="btn btn-outline-delete"
+        >
+          EXCLUIR
+        </button>
         <Link to={`/admin/products/${product.id}`}>
-        <button type="submit" className="btn btn-outline-edit">EDITAR</button>
+          <button type="submit" className="btn btn-outline-edit">
+            EDITAR
+          </button>
         </Link>
       </div>
     </div>

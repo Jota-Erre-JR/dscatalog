@@ -2,6 +2,9 @@
   max-width: 1200px;
 }
 
+.card-crud-top-container {
+  width: 160px;
+}
 .product-crud-form-card {
   padding: 20px;
 }

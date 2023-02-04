@@ -1,9 +1,6 @@
-ul {
+.admin-nav-items-conteiner {
   display: flex;
   justify-content: space-around;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
 .admin-nav-conteiner {
@@ -42,7 +39,7 @@ ul {
 }
 
 @media (min-width: 1200px) {
-  ul {
+  .admin-nav-items-conteiner {
     justify-content: unset;
     flex-direction: column;
   }
@@ -62,6 +59,5 @@ ul {
     background-color: #ffffff;
     padding-left: 40px;
     border-bottom: solid 1px #e1e1e1;
-
   }
 }

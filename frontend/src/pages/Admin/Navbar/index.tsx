@@ -5,7 +5,7 @@ import { hasAnyRoles } from 'util/auth';
 const Navbar = () => {
   return (
     <nav className="admin-nav-conteiner">
-      <ul>
+      <ul className="admin-nav-items-conteiner">
         <li>
           <NavLink to="/admin/products" className="admin-nav-item">
             <p>Produtos</p>

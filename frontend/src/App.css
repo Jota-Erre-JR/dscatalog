@@ -4,12 +4,24 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   margin-bottom: 0;
 }
 
-a, a:hover{
+a,
+a:hover {
   text-decoration: none;
   color: unset;
 }
@@ -27,8 +39,8 @@ a, a:hover{
   letter-spacing: -0.015em;
   color: #263238;
   background-color: #ffffff !important;
-  }
-  
-  .base-input::placeholder {
-  color: #9E9E9E;
-  }
+}
+
+.base-input::placeholder {
+  color: #9e9e9e;
+}

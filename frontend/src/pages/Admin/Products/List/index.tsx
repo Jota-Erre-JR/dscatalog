@@ -7,25 +7,25 @@ import { AxiosRequestConfig } from 'axios';
 import { requestBackend } from 'util/requests';
 import Pagination from 'components/Pagination';
 import './styles.css';
+import ProductFilter from 'components/ProductFilter';
 
 type ControlComponentsData = {
   activePage: number;
-}
+};
 
 const List = () => {
   const [page, setPage] = useState<SpringPage<Product>>();
 
-  const [controlComponentData, setControlComponentData] = useState<ControlComponentsData>(
-    {
-      activePage: 0
-    }
-  );
+  const [controlComponentData, setControlComponentData] =
+    useState<ControlComponentsData>({
+      activePage: 0,
+    });
 
   const handlePageChange = (pageNumber: number) => {
-    setControlComponentData({activePage: pageNumber});
+    setControlComponentData({ activePage: pageNumber });
   };
 
-  const getProducts = useCallback( () => {
+  const getProducts = useCallback(() => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/products',
@@ -38,13 +38,11 @@ const List = () => {
     requestBackend(config).then((response) => {
       setPage(response.data);
     });
-  },[controlComponentData]);
+  }, [controlComponentData]);
 
   useEffect(() => {
     getProducts();
   }, [getProducts]);
-
-  
 
   return (
     <>
@@ -54,7 +52,7 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <div className="base-card product-filter-container">Search bar</div>
+        <ProductFilter />
       </div>
       <div className="row">
         {page?.content.map((product) => (
@@ -63,7 +61,11 @@ const List = () => {
           </div>
         ))}
       </div>
-      <Pagination pageCount={page ? page.totalPages : 0} pageRange={3} onChange={handlePageChange} />
+      <Pagination
+        pageCount={page ? page.totalPages : 0}
+        pageRange={3}
+        onChange={handlePageChange}
+      />
     </>
   );
 };

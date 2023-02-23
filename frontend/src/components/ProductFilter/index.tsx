@@ -34,11 +34,11 @@ const ProductFilter = () => {
           <input
             {...register('name')}
             type="text"
-            className="form-control"
+            className="form-product-filter-control"
             placeholder="Nome do produto"
             name="name"
           />
-          <button>
+          <button className="product-filter-search-icon">
             <SearchIcon />
           </button>
         </div>
@@ -50,7 +50,7 @@ const ProductFilter = () => {
               render={({ field }) => (
                 <Select
                   {...field}
-                  classNamePrefix="product-crud-select"
+                  classNamePrefix="product-filter-select"
                   options={selectCategories}
                   isClearable
                   getOptionLabel={(category: Category) => category.name}
@@ -60,7 +60,9 @@ const ProductFilter = () => {
               )}
             />
           </div>
-          <button className="btn btn-outline-secondary">Limpar</button>
+          <button className="btn btn-outline-secondary btn-product-filter-clear">
+            LIMPAR <span className="btn-product-filter-word">FILTRO</span>
+          </button>
         </div>
       </form>
     </div>

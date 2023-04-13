@@ -9,6 +9,7 @@
   justify-content: space-between;
   border-bottom: 1px solid #e1e1e1;
   margin-bottom: 10px;
+  height: 40px;
 }
 
 .form-product-filter-control,
@@ -111,9 +112,40 @@
 }
 
 @media (min-width: 768px) {
+  .btn-product-filter-word {
+    display: none;
+  }
+
   .product-filter-container {
     margin-left: 20px;
     flex: 1;
     margin-bottom: 0px;
+    padding: 10px 15px;
+  }
+
+  .product-filter-form {
+    display: flex;
+  }
+
+  .product-filter-name-container {
+    flex: 1;
+    margin-bottom: 0px;
+    margin-right: 10px;
+  }
+
+  .product-filter-bottom-container {
+    flex: 1;
+    height: 40px;
+  }
+
+  .product-filter-select__input-container {
+    margin: 0px 0px !important;
+    min-height: 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  .btn-product-filter-word {
+    display: unset;
   }
 }

@@ -7,10 +7,11 @@ import { AxiosRequestConfig } from 'axios';
 import { requestBackend } from 'util/requests';
 import Pagination from 'components/Pagination';
 import './styles.css';
-import ProductFilter from 'components/ProductFilter';
+import ProductFilter, { ProductFilterData } from 'components/ProductFilter';
 
 type ControlComponentsData = {
   activePage: number;
+  filterData: ProductFilterData;
 };
 
 const List = () => {
@@ -19,10 +20,18 @@ const List = () => {
   const [controlComponentData, setControlComponentData] =
     useState<ControlComponentsData>({
       activePage: 0,
+      filterData: { name: '', category: null },
     });
 
   const handlePageChange = (pageNumber: number) => {
-    setControlComponentData({ activePage: pageNumber });
+    setControlComponentData({
+      activePage: pageNumber,
+      filterData: controlComponentData.filterData,
+    });
+  };
+
+  const handleSubmitFilter = (data: ProductFilterData) => {
+    setControlComponentData({ activePage: 0, filterData: data });
   };
 
   const getProducts = useCallback(() => {
@@ -32,6 +41,8 @@ const List = () => {
       params: {
         page: controlComponentData.activePage,
         size: 3,
+        name: controlComponentData.filterData.name,
+        categoryId: controlComponentData.filterData.category?.id,
       },
     };
 
@@ -52,7 +63,7 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <ProductFilter />
+        <ProductFilter onSubmitFilter={handleSubmitFilter} />
       </div>
       <div className="row">
         {page?.content.map((product) => (
@@ -62,6 +73,7 @@ const List = () => {
         ))}
       </div>
       <Pagination
+        forcePage={page?.number}
         pageCount={page ? page.totalPages : 0}
         pageRange={3}
         onChange={handlePageChange}

@@ -145,6 +145,9 @@
 }
 
 @media (min-width: 992px) {
+  .product-filter-container{
+    width: calc(100% - 160px);
+  }
   .btn-product-filter-word {
     display: unset;
   }

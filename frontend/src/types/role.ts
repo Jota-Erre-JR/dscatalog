@@ -1,5 +1,1 @@
-export type Role = {
-    id: number;
-    authority: string;  
-  };
-  
+export type Role = 'ROLE_OPERATOR' | 'ROLE_ADMIN';

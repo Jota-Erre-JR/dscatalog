@@ -69,7 +69,6 @@ const Form = () => {
         history.push('/admin/products');
       })
       .catch(() => {
-        toast.error('Erro ao cadastrar produto!');
       });
   };
 

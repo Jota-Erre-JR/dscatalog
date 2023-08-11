@@ -51,12 +51,27 @@ describe('Product form create tests', () => {
     userEvent.click(submitButton);
 
     await waitFor(() => {
-      const toastElement = screen.getByText(
-        'Produto cadastrado com sucesso!'
-      );
+      const toastElement = screen.getByText('Produto cadastrado com sucesso!');
       expect(toastElement).toBeInTheDocument();
     });
 
     expect(history.location.pathname).toEqual('/admin/products');
+  });
+
+  test('Should show 5 validations messages when just clicking on submit', async () => {
+    render(
+      <Router history={history}>
+        <Form />
+      </Router>
+    );
+
+    const submitButton = screen.getByRole('button', { name: /salvar/i });
+
+    userEvent.click(submitButton);
+
+    await waitFor(() => {
+      const messages = screen.getAllByText('Campo obrigatório!');
+      expect(messages).toHaveLength(5);
+    });
   });
 });

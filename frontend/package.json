@@ -36,6 +36,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
+    "react-select-event": "^5.5.1",
     "react-toastify": "^9.1.2",
     "typescript": "^5.1.6",
     "web-vitals": "^2.1.4"

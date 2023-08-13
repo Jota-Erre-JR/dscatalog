@@ -74,4 +74,42 @@ describe('Product form create tests', () => {
       expect(messages).toHaveLength(5);
     });
   });
+
+  test('Should clear validations messages when filling out the form correctly', async () => {
+    render(
+      <Router history={history}>
+        <Form />
+      </Router>
+    );
+
+    const submitButton = screen.getByRole('button', { name: /salvar/i });
+
+    userEvent.click(submitButton);
+
+    await waitFor(() => {
+      const messages = screen.getAllByText('Campo obrigatório!');
+      expect(messages).toHaveLength(5);
+    });
+
+    const nameInput = screen.getByTestId('name');
+    const priceInput = screen.getByTestId('price');
+    const imgUrlInput = screen.getByTestId('imgUrl');
+    const descriptionInput = screen.getByTestId('description');
+    const categoriesInput = screen.getByLabelText('Categorias');
+
+    await selectEvent.select(categoriesInput, ['Eletrônicos', 'Computadores']);
+    userEvent.type(nameInput, 'Computador');
+    userEvent.type(priceInput, '3999.99');
+    userEvent.type(
+      imgUrlInput,
+      'https://github.com/Jota-Erre-JR/dscatalog/blob/main/backend/img/10-small.jpg'
+    );
+    userEvent.type(descriptionInput, 'Super rápido e blablablalbal');
+
+    await waitFor(() => {
+      const messages = screen.queryAllByText('Campo obrigatório!');
+      expect(messages).toHaveLength(0);
+    });
+
+  });
 });

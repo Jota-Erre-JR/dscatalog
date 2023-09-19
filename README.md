@@ -6,6 +6,9 @@
 
 ![image](https://user-images.githubusercontent.com/95655712/190936569-5a8e25c0-d9cb-43ad-81a5-f859225e3162.png)
 
+### UML Diagram
+
+![image](https://user-images.githubusercontent.com/95655712/184515609-4855c6f3-0e5c-457f-8ff7-40c4edd144c3.png)
 
 ### Back-end Skills
 
@@ -55,15 +58,109 @@
   - Annotations
   - Customizing the HTTP response
   - Customized validations with bank access
-● Authentication and authorization
+- Authentication and authorization
   - Spring Security
   - OAuth 2.0
   - JWT Token
   - Route authorization by profile
-● Tips for Postman
-● Environment variables in the project with coalescence
+- Tips for Postman
+- Environment variables in the project with coalescence
 
-### UML Diagram
+## Frontend skills
 
-![image](https://user-images.githubusercontent.com/95655712/184515609-4855c6f3-0e5c-457f-8ff7-40c4edd144c3.png)
+### Layout and navigation
+### Skills
+- ReactJS
+  - Project creation
+  - Project structure
+  - Components
+  - Imports
+  - Use of images
+- Layout
+  - HTML
+  - CSS
+    - Manual styling
+    - Flexbox
+    -Bootstrap
+    - Responsiveness
+  - Figma project execution
+- Routes
+  - React Router DOM
+  - Routes and links
+ 
+### API integration
+### Skills
+- Props
+- More about layout
+  - ProductDetails screen
+  - Catalog screen
+  - Admin Screen
+- More about Routes
+  - URL Parameters
+  - Hierarchies (nesting)
+  - Redirects
+- Integration with back end
+  - Axios
+- React Hooks
+  - useState
+  - useEffect
+- Effects: “loaders”
+- “root” forms
+  - Event handling
+  - Form state manipulation
+  - Form submission
 
+### Authentication and authorization
+### Skills
+- Forms
+  - React Hook Form
+  - Form validation, regular expressions
+  - Error messages and conditional styling
+- OAuth2 Login
+  - Interceptors
+  - LocalStorage
+    - Data access
+    - JSON parse/stringify
+- Global state with Context API
+- Authentication and authorization flows
+  - Protected routes
+  - Login and authorization redirects
+  - Special redirects for user experience (UX)
+  - Route-level permissioning
+  - Content restriction (UI) based on user profile
+
+### CRUD, pagination, filters
+### Skills
+- Responsive CRUD
+  - Data listing
+  - Form
+  - Insertion, editing and removal
+- Communication between components with events (observer pattern)
+- React Hook Form
+- Integration of libs with React Hook Form
+  - React Select
+  - React Currency Input Field
+- Other libs
+  - React Pagination
+  - React Toastfy
+- Data filtering
+- Reference control with useCallback hook
+
+### Testing and deployment
+### Skills
+- JEST and Testing Library
+- JS/TS function tests
+  - Test execution, watch mode
+  - Describe block and test suite
+  - Mock functions with spyOn
+- React component testing
+  - Unit and integration tests
+  - Mock functions with jest.fn()
+  - Mock requests with MSW
+  - React Router DOM Mock
+  - User interaction simulation
+  - Fixtures
+  - Form inputs
+  - Form submission
+- Deployment with CI/CD
+  -Netlify
